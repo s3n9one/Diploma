@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="mainMenu">Главное меню</string>
+    <string name="chooseOption">Выберите опцию</string>
+    <string name="arrivalProduct">Приход товара</string>
+    <string name="saleProduct">Продажа товара</string>
+    <string name="productList">Список товаров</string>
+    <string name="goBack">Назад</string>
+</resources>
