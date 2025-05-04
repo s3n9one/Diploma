@@ -6,4 +6,9 @@
     <string name="saleProduct">Продажа товара</string>
     <string name="productList">Список товаров</string>
     <string name="goBack">Назад</string>
+    <string name="N">№</string>
+    <string name="name">Наименование</string>
+    <string name="category">Категория</string>
+    <string name="unit">Ед. изм.</string>
+    <string name="quantity">Кол-во</string>
 </resources>
