@@ -2,38 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/productList"
+    android:id="@+id/productSale"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".ProductList">
+    tools:context=".ProductSale">
 
     <TextView
-        android:id="@+id/productListText"
+        android:id="@+id/productSaleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50sp"
-        android:text="@string/productList"
+        android:text="@string/saleProduct"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="35sp"/>
 
-    <!-- Горизонтальный ScrollView для таблицы (если колонки не помещаются) -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:scrollbars="none">
 
-        <!-- Таблица с товарами -->
         <TableLayout
-            android:id="@+id/tableProducts"
+            android:id="@+id/tableProductsSale"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:stretchColumns="1"
-            android:shrinkColumns="0,2,3"
+            android:stretchColumns="*"
             android:background="@color/colorPrimary">
 
             <!-- Шапка таблицы -->
@@ -45,7 +41,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/N"
+                    android:text="@string/dateText"
                     android:textColor="@color/black"
                     android:textSize="10sp"
                     android:textStyle="bold"
@@ -54,7 +50,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/name"
+                    android:text="@string/product"
                     android:textColor="@color/black"
                     android:textSize="10sp"
                     android:textStyle="bold"
@@ -64,7 +60,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/unit"
+                    android:text="@string/quantity"
                     android:textColor="@color/black"
                     android:textSize="10sp"
                     android:textStyle="bold"
@@ -73,7 +69,34 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/quantity"
+                    android:text="@string/priceText"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:minWidth="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/result"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:minWidth="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/paymentMethod"
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:minWidth="50dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/revenue"
                     android:textColor="@color/black"
                     android:textSize="10sp"
                     android:textStyle="bold"
@@ -88,23 +111,46 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="1"/>
+                    android:textSize="10sp"
+                    android:text="05.05.2025"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Молоко"/>
+                    android:textSize="10sp"
+                    android:text="Носки"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="л"/>
+                    android:textSize="10sp"
+                    android:text="5"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10"/>
+                    android:textSize="10sp"
+                    android:text="20"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="300"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="Наличка"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="300"/>
             </TableRow>
+
         </TableLayout>
     </HorizontalScrollView>
 
@@ -113,14 +159,29 @@
         android:id="@+id/goBack"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/productListText"
-        android:layout_marginStart="50sp"
+        android:layout_marginStart="40sp"
         android:layout_marginTop="50sp"
         android:onClick="goBack"
         android:text="@string/goBack"
         android:textColor="@color/black"
         android:textSize="25sp"
         app:backgroundTint="@color/grayButton"
+        app:cornerRadius="10dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+
+    <!-- Кнопка "Добавить" -->
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="220sp"
+        android:layout_marginTop="-50sp"
+        android:onClick="plus"
+        android:text="@string/plus"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        app:backgroundTint="@color/colorPrimary"
         app:cornerRadius="10dp"
         app:strokeColor="@color/black"
         app:strokeWidth="2dp" />

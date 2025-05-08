@@ -11,4 +11,24 @@
     <string name="category">Категория</string>
     <string name="unit">Ед. изм.</string>
     <string name="quantity">Кол-во</string>
+    <string name="productArrival">Приход товара</string>
+    <string name="dateText">Дата</string>
+    <string name="product">Товар</string>
+    <string name="priceText">Цена</string>
+    <string name="result">Итог</string>
+    <string name="revenue">Выручка</string>
+    <string name="plus">+</string>
+    <string name="addArrival">Добавление закупки</string>
+    <string name="enterTheDate">"  Введите дату"</string>
+    <string name="productName">Наименование товара</string>
+    <string name="enterTheProductName">"  Введите наименование товара"</string>
+    <string name="enterTheCategory">"  Введите категорию товара"</string>
+    <string name="enterTheUnit">"  Введите ед. измерения"</string>
+    <string name="enterTheQuantity">"  Введите количество"</string>
+    <string name="enterThePrice">"  Введите цену"</string>
+    <string name="save">Сохранить</string>
+    <string name="cancel">Отмена</string>
+    <string name="paymentMethod">Сп. оплаты</string>
+    <string name="addSale">Добавление продажи</string>
+    <string name="enterPaymentMethod">"  Введите способ оплаты"</string>
 </resources>

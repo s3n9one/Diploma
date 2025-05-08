@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/addProductSale"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".AddProductSale">
+
+    <TextView
+        android:id="@+id/addProductSaleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35sp"
+        android:text="@string/addSale"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"/>
+
+    <TextView
+        android:id="@+id/dateSaleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0sp"
+        android:text="@string/dateText"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:layout_below="@id/addProductSaleText"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/editDateText"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:hint="@string/enterTheDate"
+        android:layout_below="@id/dateSaleText"
+        android:ems="10"
+        android:background="@drawable/edittext_border"
+        android:layout_marginHorizontal="50sp"
+        android:inputType="date"/>
+
+    <TextView
+        android:id="@+id/productNameText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="@string/productName"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_below="@id/editDateText"/>
+
+    <EditText
+        android:id="@+id/editProductName"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:hint="@string/enterTheProductName"
+        android:layout_below="@id/productNameText"
+        android:ems="10"
+        android:background="@drawable/edittext_border"
+        android:layout_marginHorizontal="50sp"
+        android:inputType="date"/>
+
+    <TextView
+        android:id="@+id/quantityText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="@string/quantity"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_below="@id/editProductName"/>
+
+    <EditText
+        android:id="@+id/editQuantity"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:hint="@string/enterTheQuantity"
+        android:layout_below="@id/quantityText"
+        android:ems="10"
+        android:background="@drawable/edittext_border"
+        android:layout_marginHorizontal="50sp"
+        android:inputType="date"/>
+
+    <TextView
+        android:id="@+id/priceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="@string/priceText"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_below="@id/editQuantity"/>
+
+    <EditText
+        android:id="@+id/editPrice"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:hint="@string/enterThePrice"
+        android:layout_below="@id/priceText"
+        android:ems="10"
+        android:background="@drawable/edittext_border"
+        android:layout_marginHorizontal="50sp"
+        android:inputType="date"/>
+
+    <TextView
+        android:id="@+id/paymentMethodText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="@string/paymentMethod"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:layout_below="@id/editPrice"/>
+
+    <EditText
+        android:id="@+id/editPaymentMethod"
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:hint="@string/enterPaymentMethod"
+        android:layout_below="@id/paymentMethodText"
+        android:ems="10"
+        android:background="@drawable/edittext_border"
+        android:layout_marginHorizontal="50sp"
+        android:inputType="date"/>
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_below="@id/editPaymentMethod"
+        android:layout_width="120dp"
+        android:layout_height="50sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="20sp"
+        android:paddingHorizontal="10sp"
+        android:onClick="cancel"
+        android:text="@string/cancel"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:backgroundTint="@color/grayButton"
+        app:cornerRadius="10dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/save"
+        android:layout_below="@id/editPaymentMethod"
+        android:layout_width="120dp"
+        android:layout_height="50sp"
+        android:layout_marginStart="250sp"
+        android:layout_marginTop="20sp"
+        android:paddingHorizontal="10sp"
+        android:text="@string/save"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:backgroundTint="@color/colorPrimary"
+        app:cornerRadius="10dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+
+    <Button
+        android:id="@+id/goBack"
+        android:layout_below="@id/cancel"
+        android:layout_width="120dp"
+        android:layout_height="50sp"
+        android:layout_marginStart="40sp"
+        android:layout_marginTop="25sp"
+        android:onClick="goBack"
+        android:text="@string/goBack"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:backgroundTint="@color/grayButton"
+        app:cornerRadius="10dp"
+        app:strokeColor="@color/black"
+        app:strokeWidth="2dp" />
+</RelativeLayout>
