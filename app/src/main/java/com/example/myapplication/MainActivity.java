@@ -12,7 +12,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,12 +28,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ProductList.class);
         startActivity(intent);
     }
-
     public void goToProductArrival(View v) {
         Intent intent = new Intent(this, ProductArrival.class);
         startActivity(intent);
     }
-
     public void goToProductSale(View v) {
         Intent intent = new Intent(this, ProductSale.class);
         startActivity(intent);

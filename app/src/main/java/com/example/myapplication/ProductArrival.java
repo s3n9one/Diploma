@@ -28,7 +28,6 @@ public class ProductArrival extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
     public void plus(View v) {
         Intent intent = new Intent(this, AddProductArrival.class);
         startActivity(intent);

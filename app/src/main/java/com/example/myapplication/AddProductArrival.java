@@ -43,7 +43,6 @@ public class AddProductArrival extends AppCompatActivity {
         Intent intent = new Intent(this, ProductArrival.class);
         startActivity(intent);
     }
-
     public void cancel(View v) {
         editDateText.setText("");
         editProductName.setText("");

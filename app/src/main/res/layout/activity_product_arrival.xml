@@ -29,13 +29,13 @@
         <!-- Таблица с товарами -->
         <TableLayout
             android:id="@+id/tableProductsArrival"
-            android:layout_width="wrap_content"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
-            android:stretchColumns="*"
             android:background="@color/colorPrimary">
 
             <!-- Шапка таблицы -->
             <TableRow
+                android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:padding="8dp">
@@ -45,60 +45,60 @@
                     android:layout_height="wrap_content"
                     android:text="@string/dateText"
                     android:textColor="@color/black"
-                    android:textSize="10sp"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:minWidth="30dp"/>
+                    android:minWidth="60dp"/>
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/product"
                     android:textColor="@color/black"
-                    android:textSize="10sp"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:layout_weight="1"
-                    android:minWidth="200dp" />
+                    android:minWidth="150dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/quantity"
                     android:textColor="@color/black"
-                    android:textSize="10sp"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:minWidth="50dp" />
+                    android:minWidth="45dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/priceText"
                     android:textColor="@color/black"
-                    android:textSize="10sp"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:minWidth="50dp" />
+                    android:minWidth="45dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/result"
                     android:textColor="@color/black"
-                    android:textSize="10sp"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:minWidth="50dp" />
+                    android:minWidth="50dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/revenue"
                     android:textColor="@color/black"
-                    android:textSize="10sp"
+                    android:textSize="11sp"
                     android:textStyle="bold"
-                    android:minWidth="50dp" />
+                    android:minWidth="50dp"/>
             </TableRow>
 
             <!-- Пример строки с товаром (будет заполняться из БД) -->
             <TableRow
                 android:layout_height="wrap_content"
+                android:layout_width="100dp"
                 android:padding="8dp">
 
                 <TextView
@@ -111,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="10sp"
-                    android:text="Носки"/>
+                    android:text="Носки черные шерстяные"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -141,7 +141,6 @@
         </TableLayout>
     </HorizontalScrollView>
 
-    <!-- Кнопка "Назад" -->
     <Button
         android:id="@+id/goBack"
         android:layout_width="150dp"
@@ -157,7 +156,6 @@
         app:strokeColor="@color/black"
         app:strokeWidth="2dp" />
 
-    <!-- Кнопка "Добавить" -->
     <Button
         android:id="@+id/plus"
         android:layout_width="150dp"
