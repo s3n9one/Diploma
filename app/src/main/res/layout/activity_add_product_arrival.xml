@@ -51,16 +51,14 @@
         android:textSize="15sp"
         android:layout_below="@id/editDateText"/>
 
-    <EditText
-        android:id="@+id/editProductName"
+    <Spinner
+        android:id="@+id/mySpinner"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:hint="@string/enterTheProductName"
-        android:layout_below="@id/productNameText"
-        android:ems="10"
-        android:background="@drawable/edittext_border"
         android:layout_marginHorizontal="50sp"
-        android:inputType="date"/>
+        style="@style/CustomSpinnerStyle"
+        android:prompt="@string/enterTheProductName"
+        android:layout_below="@+id/productNameText"/>
 
     <TextView
         android:id="@+id/categoryText"
@@ -71,7 +69,7 @@
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="15sp"
-        android:layout_below="@id/editProductName"/>
+        android:layout_below="@id/mySpinner"/>
 
     <EditText
         android:id="@+id/editCategory"
@@ -82,7 +80,7 @@
         android:ems="10"
         android:background="@drawable/edittext_border"
         android:layout_marginHorizontal="50sp"
-        android:inputType="date"/>
+        android:inputType="text"/>
 
     <TextView
         android:id="@+id/unitText"
@@ -104,7 +102,7 @@
         android:ems="10"
         android:background="@drawable/edittext_border"
         android:layout_marginHorizontal="50sp"
-        android:inputType="date"/>
+        android:inputType="text"/>
 
     <TextView
         android:id="@+id/quantityText"
@@ -126,7 +124,7 @@
         android:ems="10"
         android:background="@drawable/edittext_border"
         android:layout_marginHorizontal="50sp"
-        android:inputType="date"/>
+        android:inputType="number"/>
 
     <TextView
         android:id="@+id/priceText"
@@ -148,7 +146,7 @@
         android:ems="10"
         android:background="@drawable/edittext_border"
         android:layout_marginHorizontal="50sp"
-        android:inputType="date"/>
+        android:inputType="number"/>
 
     <Button
         android:id="@+id/cancel"
@@ -181,7 +179,8 @@
         app:backgroundTint="@color/colorPrimary"
         app:cornerRadius="10dp"
         app:strokeColor="@color/black"
-        app:strokeWidth="2dp" />
+        app:strokeWidth="2dp"
+        android:onClick="save"/>
 
     <Button
         android:id="@+id/goBack"

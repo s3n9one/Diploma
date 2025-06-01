@@ -1,0 +1,6 @@
+<resources>
+    <style name="CustomSpinnerStyle">
+        <item name="android:background">@drawable/spinner_background</item>
+        <item name="android:padding">8dp</item>
+    </style>
+</resources>

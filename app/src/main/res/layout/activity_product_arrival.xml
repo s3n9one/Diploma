@@ -88,56 +88,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/revenue"
+                    android:text="Затраты"
                     android:textColor="@color/black"
                     android:textSize="11sp"
                     android:textStyle="bold"
                     android:minWidth="50dp"/>
             </TableRow>
-
-            <!-- Пример строки с товаром (будет заполняться из БД) -->
-            <TableRow
-                android:layout_height="wrap_content"
-                android:layout_width="100dp"
-                android:padding="8dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="10sp"
-                    android:text="05.05.2025"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="10sp"
-                    android:text="Носки черные шерстяные"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="10sp"
-                    android:text="5"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="10sp"
-                    android:text="20"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="10sp"
-                    android:text="300"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="10sp"
-                    android:text="300"/>
-            </TableRow>
-
         </TableLayout>
     </HorizontalScrollView>
 

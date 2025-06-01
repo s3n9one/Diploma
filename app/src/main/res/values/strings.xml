@@ -19,7 +19,7 @@
     <string name="revenue">Выручка</string>
     <string name="plus">+</string>
     <string name="addArrival">Добавление закупки</string>
-    <string name="enterTheDate">"  Введите дату"</string>
+    <string name="enterTheDate">"  Введите дату (дд.мм.гггг)"</string>
     <string name="productName">Наименование товара</string>
     <string name="enterTheProductName">"  Введите наименование товара"</string>
     <string name="enterTheCategory">"  Введите категорию товара"</string>
@@ -31,4 +31,5 @@
     <string name="paymentMethod">Сп. оплаты</string>
     <string name="addSale">Добавление продажи</string>
     <string name="enterPaymentMethod">"  Введите способ оплаты"</string>
+    <string name="addProduct">"Добавление товара"</string>
 </resources>

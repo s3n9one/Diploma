@@ -16,6 +16,6 @@ public class MyApp extends Application {
                 getApplicationContext(),
                 AppDatabase.class,
                 "market-database"
-        ).build();
+        ).fallbackToDestructiveMigration().build();
     }
 }
