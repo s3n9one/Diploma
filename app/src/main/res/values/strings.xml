@@ -32,4 +32,9 @@
     <string name="addSale">Добавление продажи</string>
     <string name="enterPaymentMethod">"  Введите способ оплаты"</string>
     <string name="addProduct">"Добавление товара"</string>
+    <string-array name="payment_methods">
+        <item>Наличный</item>
+        <item>Терминал</item>
+        <item>Перевод</item>
+    </string-array>
 </resources>

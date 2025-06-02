@@ -32,8 +32,8 @@ import java.util.concurrent.Executors;
 
 public class AddProductSale extends AppCompatActivity {
     private final Executor executor = Executors.newSingleThreadExecutor();
-    private EditText editDateText, editQuantity, editPrice, editPaymentMethod;
-    private Spinner productSpinner;
+    private EditText editDateText, editQuantity, editPrice;
+    private Spinner productSpinner, paymentMethodSpinner;
     private List<ProductListTable> products = new ArrayList<>();
     private List<ProductArrivalTable> arrivals = new ArrayList<>();
 
@@ -51,8 +51,8 @@ public class AddProductSale extends AppCompatActivity {
         editDateText = findViewById(R.id.editDateText);
         editQuantity = findViewById(R.id.editQuantity);
         editPrice = findViewById(R.id.editPrice);
-        editPaymentMethod = findViewById(R.id.editPaymentMethod);
         productSpinner = findViewById(R.id.productSpinner);
+        paymentMethodSpinner = findViewById(R.id.paymentMethodSpinner);
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         editDateText.setText(sdf.format(new Date()));
@@ -70,75 +70,6 @@ public class AddProductSale extends AppCompatActivity {
                     calendar.get(Calendar.DAY_OF_MONTH)).show();
         });
     }
-
-//    private void loadProductsIntoSpinner() {
-//        MyApp.database.ProductArrivalDao().getAllArrivals().observe(this, arrivals -> {
-//            this.arrivals = arrivals;
-//            List<String> productNames = new ArrayList<>();
-//
-//            SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
-//
-//            for (ProductArrivalTable arrival : arrivals) {
-//                String formattedDate = dateFormat.format(arrival.arrivalDate);
-//                productNames.add(arrival.productName + " (" + formattedDate + ", " + arrival.quantity + ")");
-//            }
-//
-//            if (productNames.isEmpty()) {
-//                Toast.makeText(this, "Нет доступных товаров для продажи", Toast.LENGTH_LONG).show();
-//                finish();
-//                return;
-//            }
-//
-//            ArrayAdapter<String> adapter = new ArrayAdapter<>(
-//                    this,
-//                    android.R.layout.simple_spinner_item,
-//                    productNames
-//            );
-//
-//            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//            productSpinner.setAdapter(adapter);
-//        });
-//    }
-//
-//    public void save(View v) {
-//        try {
-//            executor.execute(() -> {
-//                int selectedPosition = productSpinner.getSelectedItemPosition();
-//                if (selectedPosition == AdapterView.INVALID_POSITION || arrivals.isEmpty()) {
-//                    Toast.makeText(this, "Выберите товар", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                // Проверка заполнения полей
-//                if (editQuantity.getText().toString().isEmpty() || editPrice.getText().toString().isEmpty()) {
-//                    Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show();
-//                    return;
-//                }
-//
-//                Date saleDate = parseManualDate();
-//                if (saleDate == null) return;
-//
-//                ProductArrivalTable selectedArrival = arrivals.get(selectedPosition);
-//                int quantity = Integer.parseInt(editQuantity.getText().toString().trim());
-//                int price = Integer.parseInt(editPrice.getText().toString().trim());
-//                String paymentMethod = editPaymentMethod.getText().toString().trim();
-//
-//                // Создаем и сохраняем продажу
-//                SaleProductTable sale = new SaleProductTable();
-//                sale.saleDate = saleDate;
-//                sale.idArrival = selectedArrival.id;
-//                sale.productName = selectedArrival.productName;
-//                sale.saleQuantity = quantity;
-//                sale.salePrice = price;
-//                sale.paymentMethod = paymentMethod;
-//            });
-//        } catch (NumberFormatException e) {
-//            Toast.makeText(this, "Некорректные числовые значения", Toast.LENGTH_SHORT).show();
-//        } catch (Exception e) {
-//            Toast.makeText(this, "Ошибка: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-//            e.printStackTrace();
-//        }
-//    }
 
     private void loadProductsIntoSpinner() {
         MyApp.database.ProductListDao().getAllProducts().observe(this, products -> {
@@ -172,6 +103,7 @@ public class AddProductSale extends AppCompatActivity {
         try {
             executor.execute(() -> {
                 int selectedPosition = productSpinner.getSelectedItemPosition();
+                int selectedPosition1 = paymentMethodSpinner.getSelectedItemPosition();
                 if (selectedPosition == AdapterView.INVALID_POSITION || products.isEmpty()) {
                     Toast.makeText(this, "Выберите товар", Toast.LENGTH_SHORT).show();
                     return;
@@ -189,7 +121,19 @@ public class AddProductSale extends AppCompatActivity {
                 ProductListTable selectedProduct = products.get(selectedPosition);
                 int quantity = Integer.parseInt(editQuantity.getText().toString().trim());
                 int price = Integer.parseInt(editPrice.getText().toString().trim());
-                String paymentMethod = editPaymentMethod.getText().toString().trim();
+
+                String selectedPayment = "Наличный";
+
+                paymentMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        String selectedPayment = parent.getItemAtPosition(position).toString();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+                    }
+                });
 
                 // Создаем и сохраняем продажу
                 SaleProductTable sale = new SaleProductTable();
@@ -197,7 +141,7 @@ public class AddProductSale extends AppCompatActivity {
                 sale.productName = selectedProduct.name;
                 sale.saleQuantity = quantity;
                 sale.salePrice = price;
-                sale.paymentMethod = paymentMethod;
+                sale.paymentMethod = selectedPayment;
 
                 selectedProduct.quantity = (selectedProduct.quantity == null ? 0 : selectedProduct.quantity) - quantity;
 
@@ -241,6 +185,5 @@ public class AddProductSale extends AppCompatActivity {
         editDateText.setText("");
         editQuantity.setText("");
         editPrice.setText("");
-        editPaymentMethod.setText("");
     }
 }

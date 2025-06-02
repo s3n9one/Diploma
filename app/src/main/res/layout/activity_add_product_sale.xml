@@ -115,20 +115,18 @@
         android:textSize="15sp"
         android:layout_below="@id/editPrice"/>
 
-    <EditText
-        android:id="@+id/editPaymentMethod"
+    <Spinner
+        android:id="@+id/paymentMethodSpinner"
+        android:entries="@array/payment_methods"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:hint="@string/enterPaymentMethod"
-        android:layout_below="@id/paymentMethodText"
-        android:ems="10"
-        android:background="@drawable/edittext_border"
         android:layout_marginHorizontal="50sp"
-        android:inputType="text"/>
+        style="@style/CustomSpinnerStyle"
+        android:layout_below="@+id/paymentMethodText"/>
 
     <Button
         android:id="@+id/cancel"
-        android:layout_below="@id/editPaymentMethod"
+        android:layout_below="@id/paymentMethodSpinner"
         android:layout_width="120dp"
         android:layout_height="50sp"
         android:layout_marginStart="40sp"
@@ -145,7 +143,7 @@
 
     <Button
         android:id="@+id/save"
-        android:layout_below="@id/editPaymentMethod"
+        android:layout_below="@id/paymentMethodSpinner"
         android:layout_width="120dp"
         android:layout_height="50sp"
         android:layout_marginStart="250sp"
