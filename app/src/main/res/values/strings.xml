@@ -37,4 +37,14 @@
         <item>Терминал</item>
         <item>Перевод</item>
     </string-array>
+    <string name="reports">Отчеты</string>
+    <string name="choseDate">Выберите дату</string>
+    <string name="getReport">Получить отчет</string>
+    <string-array name="product_category">
+        <item>Головной убор</item>
+        <item>Верхняя одежда</item>
+        <item>Нижнее белье</item>
+        <item>Обувь</item>
+        <item>Аксессуар</item>
+    </string-array>
 </resources>

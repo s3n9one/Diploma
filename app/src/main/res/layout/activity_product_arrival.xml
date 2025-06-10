@@ -47,7 +47,7 @@
                     android:textColor="@color/black"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    android:minWidth="60dp"/>
+                    android:minWidth="70dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -56,7 +56,7 @@
                     android:textColor="@color/black"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    android:minWidth="150dp"/>
+                    android:minWidth="100dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
                     android:textColor="@color/black"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    android:minWidth="50dp"/>
+                    android:minWidth="40dp"/>
             </TableRow>
         </TableLayout>
     </HorizontalScrollView>
@@ -114,7 +114,7 @@
 
     <Button
         android:id="@+id/plus"
-        android:layout_width="150dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginStart="220sp"
         android:layout_marginTop="-50sp"

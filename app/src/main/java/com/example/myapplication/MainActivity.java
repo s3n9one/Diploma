@@ -37,4 +37,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ProductSale.class);
         startActivity(intent);
     }
+
+    public void goToReports(View v) {
+        Intent intent = new Intent(this, Report.class);
+        startActivity(intent);
+    }
 }

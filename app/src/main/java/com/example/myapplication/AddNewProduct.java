@@ -3,7 +3,9 @@ package com.example.myapplication;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,7 +19,7 @@ import com.example.myapplication.entity.ProductListTable;
 
 public class AddNewProduct extends AppCompatActivity {
     private EditText editProductName;
-    private EditText editCategory;
+    private Spinner editCategory;
     private EditText editUnit;
     private EditText editQuantity;
 
@@ -46,7 +48,6 @@ public class AddNewProduct extends AppCompatActivity {
 
     public void cancel(View v) {
         editProductName.setText("");
-        editCategory.setText("");
         editUnit.setText("");
         editQuantity.setText("");
     }
@@ -54,8 +55,10 @@ public class AddNewProduct extends AppCompatActivity {
     public void save(View v) {
         ProductListTable product = new ProductListTable();
 
+        String selectedCategory = editCategory.getSelectedItem().toString();
+
+        product.category = selectedCategory;
         product.name = editProductName.getText().toString();
-        product.category = editCategory.getText().toString();
         product.unit = editUnit.getText().toString();
         product.quantity = Integer.parseInt(editQuantity.getText().toString().trim());
 

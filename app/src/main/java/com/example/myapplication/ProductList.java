@@ -31,22 +31,18 @@ public class ProductList extends AppCompatActivity {
             return insets;
         });
 
-        // Загрузка и отображение продуктов
         loadProducts();
     }
 
     private void loadProducts() {
         TableLayout tableLayout = findViewById(R.id.tableProducts);
 
-        // Очищаем таблицу (кроме заголовка)
         int childCount = tableLayout.getChildCount();
         if (childCount > 1) {
             tableLayout.removeViews(1, childCount - 1);
         }
 
-        // Получаем продукты из базы данных
         MyApp.database.ProductListDao().getAllProducts().observe(this, products -> {
-            // Добавляем каждый продукт в таблицу
             for (int i = 0; i < products.size(); i++) {
                 ProductListTable product = products.get(i);
 
@@ -105,11 +101,4 @@ public class ProductList extends AppCompatActivity {
         Intent intent = new Intent(this, AddNewProduct.class);
         startActivity(intent);
     }
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        // Обновляем список при возвращении на экран
-//        loadProducts();
-//    }
 }

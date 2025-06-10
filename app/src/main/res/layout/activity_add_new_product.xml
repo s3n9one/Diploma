@@ -51,16 +51,25 @@
         android:textSize="15sp"
         android:layout_below="@id/editProductName"/>
 
-    <EditText
+<!--    <EditText-->
+<!--        android:id="@+id/editCategory"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="50sp"-->
+<!--        android:hint="@string/enterTheCategory"-->
+<!--        android:layout_below="@id/categoryText"-->
+<!--        android:ems="10"-->
+<!--        android:background="@drawable/edittext_border"-->
+<!--        android:layout_marginHorizontal="50sp"-->
+<!--        android:inputType="text"/>-->
+
+    <Spinner
         android:id="@+id/editCategory"
+        android:entries="@array/product_category"
         android:layout_width="match_parent"
         android:layout_height="50sp"
-        android:hint="@string/enterTheCategory"
-        android:layout_below="@id/categoryText"
-        android:ems="10"
-        android:background="@drawable/edittext_border"
         android:layout_marginHorizontal="50sp"
-        android:inputType="text"/>
+        style="@style/CustomSpinnerStyle"
+        android:layout_below="@id/categoryText"/>
 
     <TextView
         android:id="@+id/unitText"

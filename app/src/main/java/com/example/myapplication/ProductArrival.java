@@ -90,7 +90,7 @@ public class ProductArrival extends AppCompatActivity {
                 dateTextView.setText(dateFormat.format(arrival.arrivalDate));
                 dateTextView.setTextSize(textSize);
                 dateTextView.setPadding(padding, padding, padding, padding);
-                dateTextView.setMinWidth(60);
+                dateTextView.setMinWidth(70);
                 row.addView(dateTextView);
 
                 // Название товара
@@ -100,7 +100,7 @@ public class ProductArrival extends AppCompatActivity {
                 nameTextView.setPadding(padding, padding, padding, padding);
                 nameTextView.setLayoutParams(new TableRow.LayoutParams(
                         0, TableRow.LayoutParams.WRAP_CONTENT, 1));
-                nameTextView.setMinWidth(150);
+                nameTextView.setMinWidth(100);
                 row.addView(nameTextView);
 
                 // Количество

@@ -16,6 +16,9 @@ public interface ProductArrivalDao {
     @Insert
     void insert(ProductArrivalTable arrival);
 
+    @Query("SELECT * FROM ProductArrivalTable WHERE arrivalDate BETWEEN :from AND :to")
+    List<ProductArrivalTable> getArrivalsBetweenDates(long from, long to);
+
     @Query("SELECT * FROM ProductArrivalTable")
     LiveData<List<ProductArrivalTable>> getAllArrivals();
 

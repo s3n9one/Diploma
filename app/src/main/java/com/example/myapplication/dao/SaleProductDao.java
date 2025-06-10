@@ -18,6 +18,9 @@ public interface SaleProductDao {
     @Query("SELECT * FROM SaleProductTable")
     LiveData<List<SaleProductTable>> getAllSales();
 
+    @Query("SELECT * FROM SaleProductTable WHERE saleDate BETWEEN :from AND :to")
+    List<SaleProductTable> getSalesBetweenDates(long from, long to);
+
     @Query("SELECT * FROM SaleProductTable WHERE id = :idArrival")
     List<SaleProductTable> getSaleByArrival(int idArrival);
 }

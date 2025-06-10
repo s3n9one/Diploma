@@ -102,16 +102,20 @@ public class AddProductSale extends AppCompatActivity {
     public void save(View v) {
         try {
             executor.execute(() -> {
+                SaleProductTable sale = new SaleProductTable();
+
                 int selectedPosition = productSpinner.getSelectedItemPosition();
-                int selectedPosition1 = paymentMethodSpinner.getSelectedItemPosition();
                 if (selectedPosition == AdapterView.INVALID_POSITION || products.isEmpty()) {
-                    Toast.makeText(this, "Выберите товар", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(() ->
+                            Toast.makeText(this, "Выберите товар", Toast.LENGTH_SHORT).show());
                     return;
                 }
 
                 // Проверка заполнения полей
-                if (editQuantity.getText().toString().isEmpty() || editPrice.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show();
+                if (editQuantity.getText().toString().isEmpty() ||
+                        editPrice.getText().toString().isEmpty()) {
+                    runOnUiThread(() ->
+                            Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show());
                     return;
                 }
 
@@ -122,40 +126,25 @@ public class AddProductSale extends AppCompatActivity {
                 int quantity = Integer.parseInt(editQuantity.getText().toString().trim());
                 int price = Integer.parseInt(editPrice.getText().toString().trim());
 
-                String selectedPayment = "Наличный";
+                // Получаем выбранный метод оплаты напрямую из Spinner
+                String selectedPayment = paymentMethodSpinner.getSelectedItem().toString();
 
-                paymentMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        String selectedPayment = parent.getItemAtPosition(position).toString();
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-                    }
-                });
-
-                // Создаем и сохраняем продажу
-                SaleProductTable sale = new SaleProductTable();
+                sale.paymentMethod = selectedPayment; // Используем локальную переменную
                 sale.saleDate = saleDate;
                 sale.productName = selectedProduct.name;
                 sale.saleQuantity = quantity;
                 sale.salePrice = price;
-                sale.paymentMethod = selectedPayment;
 
                 selectedProduct.quantity = (selectedProduct.quantity == null ? 0 : selectedProduct.quantity) - quantity;
 
                 MyApp.database.SaleProductDao().insert(sale);
                 MyApp.database.ProductListDao().update(selectedProduct);
 
-                // Показ Toast через UI поток
                 runOnUiThread(() -> {
                     Toast.makeText(AddProductSale.this, "Данные сохранены", Toast.LENGTH_SHORT).show();
                     finish();
                 });
             });
-
-
         } catch (NumberFormatException e) {
             Toast.makeText(this, "Некорректные числовые значения", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {

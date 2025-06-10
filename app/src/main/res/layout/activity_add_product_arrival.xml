@@ -167,11 +167,13 @@
 
     <Button
         android:id="@+id/save"
-        android:layout_below="@id/editPrice"
         android:layout_width="120dp"
         android:layout_height="50sp"
-        android:layout_marginStart="250sp"
-        android:layout_marginTop="20sp"
+        android:layout_below="@id/editPrice"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="46dp"
+        android:onClick="save"
         android:paddingHorizontal="10sp"
         android:text="@string/save"
         android:textColor="@color/black"
@@ -179,8 +181,7 @@
         app:backgroundTint="@color/colorPrimary"
         app:cornerRadius="10dp"
         app:strokeColor="@color/black"
-        app:strokeWidth="2dp"
-        android:onClick="save"/>
+        app:strokeWidth="2dp" />
 
     <Button
         android:id="@+id/goBack"

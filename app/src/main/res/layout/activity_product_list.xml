@@ -145,7 +145,7 @@
         android:id="@+id/plus"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginStart="220sp"
+        android:layout_marginStart="190sp"
         android:layout_marginTop="-50sp"
         android:onClick="plus"
         android:text="@string/plus"
