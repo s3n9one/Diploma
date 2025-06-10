@@ -34,10 +34,7 @@ public class Report extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
 
-        // Инициализация элементов интерфейса
         initViews();
-
-        // Установка текущей даты по умолчанию
         setDefaultDates();
     }
 
@@ -107,17 +104,14 @@ public class Report extends AppCompatActivity {
 
         new Thread(() -> {
             try {
-                // 1. Получаем данные из БД
                 List<ProductArrivalTable> arrivals = MyApp.database.ProductArrivalDao().getArrivalsBetweenDates(
                         dateFrom.getTime(), dateTo.getTime());
 
                 List<SaleProductTable> sales = MyApp.database.SaleProductDao().getSalesBetweenDates(
                         dateFrom.getTime(), dateTo.getTime());
 
-                // 2. Формируем отчет
                 String reportText = generateReportText(arrivals, sales);
 
-                // 3. Отображаем результат
                 runOnUiThread(() -> {
                     tvReportResult.setText(reportText);
                     showToast("Отчет сформирован");
@@ -178,7 +172,7 @@ public class Report extends AppCompatActivity {
         // Итоговая информация
         sb.append("────────── ИТОГИ ───────────\n");
         sb.append(String.format(Locale.getDefault(),
-                "МАРЖА: %.2f ₽\n", totalSales - totalPurchases));
+                "ИТОГ ЗА ПЕРИОД: %.2f ₽\n", totalSales - totalPurchases));
         sb.append("══════════════════════════════");
 
         return sb.toString();

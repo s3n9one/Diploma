@@ -42,7 +42,6 @@ public class ProductSale extends AppCompatActivity {
         TableLayout tableLayout = findViewById(R.id.tableProductsSale);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
 
-        // Очищаем таблицу (кроме заголовка)
         int childCount = tableLayout.getChildCount();
         if (childCount > 1) {
             tableLayout.removeViews(1, childCount - 1);

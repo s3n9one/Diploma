@@ -49,13 +49,11 @@ public class ProductArrival extends AppCompatActivity {
         TableLayout tableLayout = findViewById(R.id.tableProductsArrival);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
 
-        // Очищаем таблицу (кроме заголовка)
         int childCount = tableLayout.getChildCount();
         if (childCount > 1) {
             tableLayout.removeViews(1, childCount - 1);
         }
 
-        // Получаем закупки из базы данных
         MyApp.database.ProductArrivalDao().getAllArrivals().observe(this, arrivals -> {
             Collections.sort(arrivals, (o1, o2) -> o1.arrivalDate.compareTo(o2.arrivalDate));
 
@@ -81,7 +79,6 @@ public class ProductArrival extends AppCompatActivity {
                 ));
                 row.setPadding(8, 8, 8, 8);
 
-                // Общие параметры для TextView
                 float textSize = 11;
                 int padding = 4;
 

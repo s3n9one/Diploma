@@ -30,7 +30,7 @@ public class AddProductArrival extends AppCompatActivity {
     private final Executor executor = Executors.newSingleThreadExecutor();
     private EditText editDateText, editCategory, editUnit, editQuantity, editPrice;
     private Spinner productSpinner;
-    private List<ProductListTable> products = new ArrayList<>(); // Этот список теперь будет заполняться
+    private List<ProductListTable> products = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class AddProductArrival extends AppCompatActivity {
 
     private void loadProductsIntoSpinner() {
         MyApp.database.ProductListDao().getAllProducts().observe(this, products -> {
-            this.products = products; // Сохраняем продукты в поле класса
+            this.products = products;
             List<String> productNames = new ArrayList<>();
 
             for (ProductListTable product : products) {
@@ -129,7 +129,6 @@ public class AddProductArrival extends AppCompatActivity {
                 MyApp.database.ProductArrivalDao().insert(arrival);
                 MyApp.database.ProductListDao().update(selectedProduct);
 
-                // Показ Toast через UI поток
                 runOnUiThread(() -> {
                     Toast.makeText(AddProductArrival.this, "Данные сохранены", Toast.LENGTH_SHORT).show();
                     finish();

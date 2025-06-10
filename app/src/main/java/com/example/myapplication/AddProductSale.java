@@ -43,7 +43,6 @@ public class AddProductSale extends AppCompatActivity {
         setContentView(R.layout.activity_add_product_sale);
 
         initViews();
-        // setupDatePicker();
         loadProductsIntoSpinner();
     }
 
@@ -56,19 +55,6 @@ public class AddProductSale extends AppCompatActivity {
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
         editDateText.setText(sdf.format(new Date()));
-    }
-
-    private void setupDatePicker() {
-        editDateText.setOnClickListener(v -> {
-            Calendar calendar = Calendar.getInstance();
-            new DatePickerDialog(this, (view, year, month, day) -> {
-                String date = String.format(Locale.getDefault(), "%02d.%02d.%04d", day, month+1, year);
-                editDateText.setText(date);
-            },
-                    calendar.get(Calendar.YEAR),
-                    calendar.get(Calendar.MONTH),
-                    calendar.get(Calendar.DAY_OF_MONTH)).show();
-        });
     }
 
     private void loadProductsIntoSpinner() {
@@ -129,7 +115,7 @@ public class AddProductSale extends AppCompatActivity {
                 // Получаем выбранный метод оплаты напрямую из Spinner
                 String selectedPayment = paymentMethodSpinner.getSelectedItem().toString();
 
-                sale.paymentMethod = selectedPayment; // Используем локальную переменную
+                sale.paymentMethod = selectedPayment;
                 sale.saleDate = saleDate;
                 sale.productName = selectedProduct.name;
                 sale.saleQuantity = quantity;
